@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pilot Dashboard - Modern Utility</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root" class="vb">
+    <div class="vb-top">
+      <div class="vb-logo"><i></i> SPECTRE</div>
+      <div class="vb-tabs">
+        <button id="tab-cockpit" class="vb-tab on">Cockpit Advisory</button>
+        <button id="tab-maint" class="vb-tab">Maintenance Log</button>
+      </div>
+      <div class="vb-meta">
+        <span class="live">LIVE</span>
+        <span class="sep">-</span>
+        <span>EK 451 - EGLL -> OMDB</span>
+        <span class="sep">-</span>
+        <span id="utc-time">--:--:--Z</span>
+      </div>
+    </div>
+
+    <div class="vb-flightbar">
+      <div class="vb-fb">
+        <span class="vb-fb-lbl">Flight</span>
+        <span class="vb-fb-val">EK 451</span>
+      </div>
+      <div class="vb-fb">
+        <span class="vb-fb-lbl">Phase</span>
+        <span class="vb-fb-val">CRUISE</span>
+      </div>
+    </div>
+
+    <div class="vb-body">
+      <aside class="vb-sub">
+        <div class="vb-sub-hd">
+          <h3>Subsystems</h3>
+          <span id="anomaly-pill" class="vb-pill ok">all nominal</span>
+        </div>
+        <div id="subsystem-list" class="vb-sub-list"></div>
+      </aside>
+
+      <main id="cockpit-panel" class="vb-main">
+        <div class="vb-sec-hd">
+          <span class="vb-sec-title">Active Anomalies</span>
+          <span class="vb-sec-sub">
+            <b id="alert-count">0 advisory</b> - 0 warning - twin model 95.1% accurate
+          </span>
+        </div>
+
+        <div id="alerts-list"></div>
+      </main>
+
+      <main id="maint-panel" class="vb-main is-hidden">
+        <div class="vb-sec-hd">
+          <span class="vb-sec-title">Maintenance Log</span>
+          <span class="vb-sec-sub">last 7 days - <span id="maint-count">0</span> events - auto-synced post-flight</span>
+        </div>
+
+        <div class="vb-stats">
+          <div class="vb-stat">
+            <div class="vb-stat-lbl">Open Advisories</div>
+            <div id="stat-open" class="vb-stat-val warn">0</div>
+            <div class="vb-stat-sub">this flight</div>
+          </div>
+          <div class="vb-stat">
+            <div class="vb-stat-lbl">7-Day Events</div>
+            <div id="stat-events" class="vb-stat-val">0</div>
+            <div class="vb-stat-sub">across 1 flight</div>
+          </div>
+          <div class="vb-stat">
+            <div class="vb-stat-lbl">Fleet Confidence</div>
+            <div class="vb-stat-val">94.2</div>
+            <div class="vb-stat-sub">post-flight federated avg</div>
+          </div>
+        </div>
+
+        <div class="vb-tbl-wrap">
+          <table class="vb-log">
+            <thead>
+              <tr>
+                <th>Time (UTC)</th>
+                <th>System</th>
+                <th>Description</th>
+                <th>Severity</th>
+                <th>Flight</th>
+              </tr>
+            </thead>
+            <tbody id="maint-log-body"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

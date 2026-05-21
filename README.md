@@ -1,6 +1,6 @@
 # SPECTRE Prototyping
 
-SPECTRE is a cockpit anomaly detection prototype. It streams simulated data from flightgear, runs the detection pipeline, and surfaces alerts and maintenance logs over WebSocket.
+This repository contains basic prototyping code for our submission to Airbus Fly Your Ideas Challenge 2026. It's an anomaly detection and predictive maintenance tool that streams simulated data from a flight sim (FlightGear), runs the detection pipeline, and surfaces alerts and maintenance logs over WebSocket to a dashboard.
 
 ## Quickstart
 1. Install dependencies (Python 3.10+ recommended).
